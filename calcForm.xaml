@@ -1,0 +1,76 @@
+﻿<Window x:Class="Cash_Calc_v2.calcForm"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:hc="https://handyorg.github.io/handycontrol"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Cash_Calc_v2"
+        mc:Ignorable="d"
+        Title="calcForm" Height="500" Width="800" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <Grid x:Name="myGrid" Focusable="True" MouseDown="myGrid_MouseDown">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Label Content="" BorderThickness="0" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.ColumnSpan="10" Width="794" Height="471" Grid.RowSpan="10" Background="#00000000" BorderBrush="#00E0E0E0"/>
+        <DataGrid x:Name="salaryTable" Grid.ColumnSpan="4" HorizontalAlignment="Left" Height="310" Margin="29,10,0,0" Grid.RowSpan="7" VerticalAlignment="Top" Width="277" Grid.Column="6"/>
+        <DataGrid Grid.ColumnSpan="4" Grid.Column="6" HorizontalAlignment="Left" Height="121" Margin="29,10,0,0" Grid.Row="7" Grid.RowSpan="3" VerticalAlignment="Top" Width="277"/>
+        <hc:DatePicker x:Name="dateCalendar" HorizontalAlignment="Left" Margin="54,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="96" Grid.ColumnSpan="2" Height="27" Grid.Column="1" Background="#FFEEE0BA" SelectedDateChanged="DatePicker_SelectedDateChanged"/>
+        <hc:NumericUpDown x:Name="numHours" Grid.Column="2" HorizontalAlignment="Left" Grid.Row="2" VerticalAlignment="Top" Width="66" Margin="4,10,0,0" Background="#FFEEE0BA" ValueChanged="NumericUpDown_ValueChanged"/>
+        <RadioButton x:Name="emlCount2" Content="2" Grid.Column="2" HorizontalAlignment="Left" Margin="34,10,0,0" Grid.Row="3" VerticalAlignment="Top" Height="27" Width="36"/>
+        <RadioButton x:Name="emlCount1" Content="1" Grid.Column="1" HorizontalAlignment="Left" Margin="73,10,0,0" Grid.Row="3" VerticalAlignment="Top" Height="27" Width="36" Grid.ColumnSpan="2" IsChecked="True"/>
+        <Label Content="Дата" BorderThickness="0" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="1" VerticalAlignment="Top" Height="47" Width="110" Grid.ColumnSpan="2"/>
+        <Label Content="Кол-во часов" BorderThickness="0" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="2" VerticalAlignment="Top" Height="47" Width="110" Grid.ColumnSpan="2"/>
+        <Label Content="Кол-во человек" BorderThickness="0" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="3" VerticalAlignment="Top" Width="110" Height="47" Grid.ColumnSpan="2"/>
+        <hc:ComboBox x:Name="selectorMag" Grid.ColumnSpan="2" Grid.Column="1" HorizontalAlignment="Left" Margin="30,10,0,0" Grid.Row="4" VerticalAlignment="Top" Width="120" Background="#FFEEE0BA" SelectionChanged="ComboBox_SelectionChanged">
+            <ComboBoxItem Content="Артбухта"/>
+            <ComboBoxItem Content="Меньшикова"/>
+            <ComboBoxItem Content="Пожарова"/>
+            <ComboBoxItem Content="Посейдон"/>
+            <ComboBoxItem Content="Юмашева"/>
+            <ComboBoxItem Content="Остряки"/>
+            <ComboBoxItem Content="Центр"/>
+        </hc:ComboBox>
+        <Label Content="Магазин" BorderThickness="0" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="4" VerticalAlignment="Top" Height="47" Grid.ColumnSpan="2" Width="95"/>
+        <hc:TextBox x:Name="boxPrincipalAmount" Grid.ColumnSpan="2" HorizontalContentAlignment="Center" Grid.Column="4" HorizontalAlignment="Left" Height="23" Margin="28,10,0,0" Grid.Row="1" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120" GotFocus="boxPrincipalAmount_GotFocus" LostFocus="boxPrincipalAmount_LostFocus"/>
+        <Label Content="Осн. товар" HorizontalContentAlignment="Left" BorderThickness="0" Grid.Column="3" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="1" VerticalAlignment="Top" Height="47" Width="93" Grid.ColumnSpan="2"/>
+        <hc:TextBox x:Name="boxAksAmount" Grid.ColumnSpan="2" HorizontalContentAlignment="Center" Grid.Column="4" HorizontalAlignment="Left" Height="23" Margin="28,10,0,0" Grid.Row="2" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120" LostFocus="boxAksAmount_LostFocus" GotFocus="boxAksAmount_GotFocus"/>
+        <Label Content="Аксессуары" HorizontalContentAlignment="Left" BorderThickness="0" Grid.Column="3" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="2" VerticalAlignment="Top" Height="47" Width="93" Grid.ColumnSpan="2"/>
+        <hc:TextBox x:Name="boxOnePercent" Grid.ColumnSpan="2" HorizontalContentAlignment="Center" Grid.Column="4" HorizontalAlignment="Left" Height="23" Margin="28,10,0,0" Grid.Row="3" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120" LostFocus="boxOnePercent_LostFocus" GotFocus="boxOnePercent_GotFocus"/>
+        <Label Content="Телефоны 1%" HorizontalContentAlignment="Left" BorderThickness="0" Grid.Column="3" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="3" VerticalAlignment="Top" Height="47" Width="98" Grid.ColumnSpan="2" Background="#00000000"/>
+        <hc:TextBox x:Name="boxTwoPercent" Grid.ColumnSpan="2" HorizontalContentAlignment="Center" Grid.Column="4" HorizontalAlignment="Left" Height="23" Margin="28,10,0,0" Grid.Row="4" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120" LostFocus="boxTwoPercent_LostFocus" GotFocus="boxTwoPercent_GotFocus"/>
+        <Label Content="Тел.\Дудки 2%" HorizontalContentAlignment="Left" BorderThickness="0" Grid.Column="3" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="4" VerticalAlignment="Top" Height="47" Width="106" Grid.ColumnSpan="2" Background="#00000000"/>
+        <hc:TextBox x:Name="boxSettings" Grid.ColumnSpan="2" HorizontalContentAlignment="Center" Grid.Column="4" HorizontalAlignment="Left" Height="23" Margin="28,10,0,0" Grid.Row="5" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120" LostFocus="boxSettings_LostFocus" GotFocus="boxSettings_GotFocus"/>
+        <Label Content="Настройки" HorizontalContentAlignment="Left" BorderThickness="0" Grid.Column="3" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="5" VerticalAlignment="Top" Height="47" Width="93" Grid.ColumnSpan="2"/>
+        <hc:TextBox x:Name="boxRepairs3" Grid.ColumnSpan="2" HorizontalContentAlignment="Center" Grid.Column="4" HorizontalAlignment="Left" Height="23" Margin="28,10,0,0" Grid.Row="6" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120" LostFocus="boxRepairs3_LostFocus" GotFocus="boxRepairs3_GotFocus"/>
+        <Label Content="Ремонты 30%" HorizontalContentAlignment="Left" BorderThickness="0" Grid.Column="3" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="6" VerticalAlignment="Top" Height="47" Width="106" Grid.ColumnSpan="2" Background="#00000000"/>
+        <hc:TextBox x:Name="boxRepairs5" Grid.ColumnSpan="2" HorizontalContentAlignment="Center" Grid.Column="4" HorizontalAlignment="Left" Height="23" Margin="28,10,0,0" Grid.Row="7" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120" LostFocus="boxRepairs5_LostFocus" GotFocus="boxRepairs5_GotFocus"/>
+        <Label Content="Ремонты 50%" HorizontalContentAlignment="Left" BorderThickness="0" Grid.Column="3" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="7" VerticalAlignment="Top" Height="47" Width="98" Grid.ColumnSpan="2" Background="#00000000"/>
+        <hc:TextBox x:Name="boxBonuses" Grid.ColumnSpan="2" HorizontalContentAlignment="Center" Grid.Column="4" HorizontalAlignment="Left" Height="23" Margin="28,10,0,0" Grid.Row="8" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120" LostFocus="boxBonuses_LostFocus" GotFocus="boxBonuses_GotFocus"/>
+        <Label Content="Бонусы" HorizontalContentAlignment="Left" BorderThickness="0" Grid.Column="3" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="8" VerticalAlignment="Top" Height="47" Width="81" Grid.ColumnSpan="2"/>
+        <Label Content="Прогресс месяца" BorderThickness="0" HorizontalAlignment="Left" Margin="49,10,0,0" Grid.Row="5" VerticalAlignment="Top" Height="36" Grid.ColumnSpan="3" Width="141" Background="#00000000"/>
+        <Label Content="CashCalc v2.0" BorderThickness="0" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="0,26,0,0" Grid.Row="9" VerticalAlignment="Top" FontSize="7"/>
+        <hc:WaveProgressBar Grid.ColumnSpan="3" HorizontalAlignment="Center" Margin="54,5,55,0" Grid.Row="6" VerticalAlignment="Top" Height="135" Grid.RowSpan="3" Width="135"/>
+
+    </Grid>
+</Window>
